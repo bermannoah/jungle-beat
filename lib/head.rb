@@ -1,12 +1,12 @@
-require "./head"
+require "./node"
 require "./linked_list"
 
-class Node
+class Head
 
   attr_accessor :data, :next_node
 
   def initialize(data)
     @data = data
-    @next_node = nil
+    @next_node = next_node
   end
 end
