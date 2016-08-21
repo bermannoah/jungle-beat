@@ -1,4 +1,4 @@
-require "./node"
+require "./node.rb"
 require "pry"
 
 class LinkedList
@@ -6,11 +6,15 @@ class LinkedList
   attr_accessor :append, :count, :to_string, :list, :head, :data, :next_node
 
   def initialize(data)
-    @head = Node.new(data)
+    @head = Node.new
   end
 
   def append(data)
-    @head.next_node = Node.new(data)
+    if @head.next_node
+      @head.next_node = Node.new(data)
+    else
+      @head.data = data
+    end
   end
 
   def count
@@ -24,7 +28,11 @@ class LinkedList
   end
 
   def to_string
-    puts "'#{@head.data} #{@head.next_node.data}'"
+    if @head.next_node
+      puts "'#{@head.data} #{@head.next_node.data}'"
+    else
+      puts "'#{@head.data}'"
+    end
   end
 
 binding.pry
