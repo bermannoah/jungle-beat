@@ -1,31 +1,27 @@
 require "./node"
-require "pry"
 
 class LinkedList
 
-  attr_accessor :append, :count, :to_string, :list, :head, :data, :next_node
+  attr_accessor :head, :append, :count, :to_string, :data
 
-  def initialize(data)
+  def initialize
     @head = Node.new(data)
   end
 
   def append(data)
-    @head.next_node = Node.new(data)
+    @head.data = data
   end
 
   def count
-    if @head.next_node
-       2
-    elsif @head
-       1
+    if @head
+      1
     else
-       0
+      0
     end
   end
 
   def to_string
-    puts "'#{@head.data} #{@head.next_node.data}'"
+    "#{@head.data.to_s}"
   end
 
-binding.pry
 end
