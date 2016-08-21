@@ -1,4 +1,4 @@
-require "./node.rb"
+require "./lib/node.rb"
 require "pry"
 
 node = Node.new("plop")
