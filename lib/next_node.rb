@@ -1,5 +1,5 @@
 require "./head"
-require "./linked_list"
+require "./node"
 
 class NextNode
 
@@ -7,6 +7,6 @@ class NextNode
 
   def initialize(data)
     @data = data
-    @next_node = next_node
+    @next_node = Node.new(data)
   end
 end

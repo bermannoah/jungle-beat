@@ -1,9 +1,9 @@
 class Head
 
-  attr_accessor :data, :next_node
+  attr_accessor :next_node, :data
 
-  def initialize(data)
-    @data = data
-    @next_node = next_node
+  def initialize
+    @next_node = Node.new(data)
+    @data = nil
   end
 end

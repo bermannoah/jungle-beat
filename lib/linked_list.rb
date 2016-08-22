@@ -1,41 +1,23 @@
-require "./node"
 require "./head"
-
+require "./node"
+# require "./next_node"
 
 class LinkedList
-
-  attr_accessor :head, :append, :count, :to_string, :data, :next_node
+  attr_accessor :next_node, :data
 
   def initialize
-    @head = Head.new(data)
-
+    @head = Node.new
   end
 
   def append(data)
 
-      # check to see if there is anything in @head.
-      # if there isn't, put data there.
-
-      if @head.data.nil? == true
+      if @head.data.nil?
         @head.data = data
+
+      else
+       @head.next_node = Node.new
+
       end
-
-
-
-      # if there IS data there, create a new node
-
-      if @head.data.nil? == false
-        @head.next_node = Node.new(data)
-      end
-
-      # if @next_node.data.nil? == false
-      # if @head.next_node.data.nil? == false
-      #   @next_node.data = data
-      # end
-
-      # if adding more data, new node adds following data to new node
-
-
   end
 
   def prepend(data)
