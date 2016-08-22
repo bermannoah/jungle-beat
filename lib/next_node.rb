@@ -1,4 +1,7 @@
-class Node
+require "./head"
+require "./linked_list"
+
+class NextNode
 
   attr_accessor :data, :next_node
 
@@ -6,7 +9,4 @@ class Node
     @data = data
     @next_node = next_node
   end
-
-
-
 end

@@ -1,6 +1,3 @@
-require "./node"
-require "./linked_list"
-
 class Head
 
   attr_accessor :data, :next_node

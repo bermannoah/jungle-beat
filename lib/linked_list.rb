@@ -1,38 +1,44 @@
 require "./node"
 require "./head"
 
+
 class LinkedList
 
-  attr_accessor :head, :append, :count, :to_string, :data, :next_node, :node
+  attr_accessor :head, :append, :count, :to_string, :data, :next_node
 
   def initialize
     @head = Head.new(data)
+
   end
 
   def append(data)
 
-      if @head.data == nil
+      # check to see if there is anything in @head.
+      # if there isn't, put data there.
+
+      if @head.data.nil? == true
         @head.data = data
-      elsif @head.next_node == nil
-        @head.next_node = Node.new(data)
-      else
-        @next_node = Node.new(data)
       end
 
-      # if @next_node != nil
-      #   @next_node.next_node = Node.new(data)
-      # elsif @head.data != nil && @head.next_node == nil
-      #   @head.next_node = Node.new(data)
-      # else
-      #   @head.data = data
+
+
+      # if there IS data there, create a new node
+
+      if @head.data.nil? == false
+        @head.next_node = Node.new(data)
+      end
+
+      # if @next_node.data.nil? == false
+      # if @head.next_node.data.nil? == false
+      #   @next_node.data = data
       # end
+
+      # if adding more data, new node adds following data to new node
+
 
   end
 
   def prepend(data)
-
-    
-
 
   end
 
@@ -56,5 +62,5 @@ class LinkedList
     else
       "#{@head.data.to_s}"
   end
-  end
+end
 end
