@@ -1,37 +1,27 @@
-require "./head"
-require "./node"
-# require "./next_node"
+require './lib/node.rb'
 
 class LinkedList
-  attr_accessor :next_node, :data
+
+  attr_accessor :head, :data, :node, :next_node
 
   def initialize
-    @head = Node.new
+    @head = node
+  end
+
+  def next_node
+
   end
 
   def append(data)
-
-      if @head.data.nil?
-        @head.data = data
-
-      else
-       @head.next_node = Node.new
-
-      end
-  end
-
-  def prepend(data)
-
-  end
-
-  def insert(location, data)
-
+    if head.nil?
+      @head = Node.new(data)
+    else
+      @next_node
+    end
   end
 
   def count
-    if @head.next_node
-      2
-    elsif @head
+    if @head.nil? == false
       1
     else
       0
@@ -39,10 +29,8 @@ class LinkedList
   end
 
   def to_string
-    if @head.next_node
-      "#{@head.data.to_s} #{@head.next_node.data.to_s}"
-    else
-      "#{@head.data.to_s}"
+    (@head.data).to_s
   end
-end
+
+
 end
