@@ -2,7 +2,7 @@ require './lib/node.rb'
 
 class LinkedList < Node
   attr_reader :data
-  attr_accessor :head, :node, :current_node, :next_node, :old_head
+  attr_accessor :head, :node, :current_node, :next_node, :moving_head
 
   def initialize
     @head = node
@@ -60,38 +60,12 @@ class LinkedList < Node
     string
   end
 
-  def make_prepended_node(data)
-    current_node = @head
-    old_head = current_node
-    make_current_node(old_head)
-
+  def prepend_node(data)
+    local_head = @head
     @head = Node.new(data)
+    @head.next_node = local_head
   end
 
-
-  # def make_current_node(data)
-  #   current_node = @head
-  #   until current_node.next_node.nil?          # looks to see if there's a nil node. if there is...
-  #     current_node = current_node.next_node    # looks for next node, sets that as local variable and then keeps going
-  #   end
-  #   current_node.next_node = Node.new(data)    # ... puts data there.
-  #
-  # end
-
-
-  # if make_current_node(data)
-  #   head.nil
-  #   @head = Node.new(data)
-  # else
-  #   @head = Node.new(data)
-  # end
-
-  # def prepend(data)
-  #   head = @head
-  #   current_node = head.data
-  #   @head = Node.new(data)
-  #
-  # end
 
   # prepend -- hold head as a local variable within that method, then reassign head as a new node,
   # then head dot next node = original head

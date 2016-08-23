@@ -56,8 +56,7 @@ class LinkedListTest < Minitest::Test
     list.append("doop")
     list.append("deep")
     assert_equal 2, list.count
-    list.make_prepended_node("dawp")
-    binding.pry
+    list.prepend_node("doowap")
     assert_equal 3, list.count
   end
 end
