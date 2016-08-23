@@ -22,9 +22,5 @@ class NodeTest < Minitest::Test
     assert_equal nil, node.next_node
   end
 
-  def test_node_can_append
-    list = Node.new(nil)
-    assert_equal nil, list.append
-  end
 
 end
