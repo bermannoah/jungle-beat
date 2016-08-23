@@ -1,6 +1,6 @@
 require './lib/node.rb'
 
-class LinkedList
+class LinkedList < Node
 
   attr_accessor :head, :data, :node, :next_node
 
@@ -9,14 +9,14 @@ class LinkedList
   end
 
   def next_node
-
+    node = nil
   end
 
   def append(data)
     if head.nil?
       @head = Node.new(data)
     else
-      @next_node
+      next_node.node = Node.new(data)
     end
   end
 
@@ -29,7 +29,7 @@ class LinkedList
   end
 
   def to_string
-    (@head.data).to_s
+    @head.data.to_s
   end
 
 
