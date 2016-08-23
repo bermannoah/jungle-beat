@@ -59,4 +59,19 @@ class LinkedListTest < Minitest::Test
     list.prepend_node("doowap")
     assert_equal 3, list.count
   end
+
+  def test_if_head_is_nil_prepend_acts_like_append
+    list = LinkedList.new
+    list.prepend_node("dooooo")
+    assert_equal 1, list.count
+  end
+
+  def test_able_to_insert_node_at_a_position
+    list = LinkedList.new
+    list.append("doop")
+    list.append("deep")
+    list.prepend_node("doowap")
+    list.insert(1, "woo")
+    assert_equal 4, list.count
+  end
 end

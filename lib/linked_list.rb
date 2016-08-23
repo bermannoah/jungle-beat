@@ -1,7 +1,7 @@
 require './lib/node.rb'
 
 class LinkedList < Node
-  attr_reader :data
+  attr_reader :data, :position
   attr_accessor :head, :node, :current_node, :next_node, :moving_head
 
   def initialize
@@ -61,13 +61,24 @@ class LinkedList < Node
   end
 
   def prepend_node(data)
-    local_head = @head
-    @head = Node.new(data)
-    @head.next_node = local_head
+      if @head.nil?                     # if this is called on empty head, proceeds like append
+        @head = Node.new(data)
+      else
+        local_head = @head              # store head as a local variable
+        @head = Node.new(data)          # reassign head as a new node
+        @head.next_node = local_head    # assign the original head node to head.next_node
+      end
   end
 
+  def insert(position, data)
 
-  # prepend -- hold head as a local variable within that method, then reassign head as a new node,
-  # then head dot next node = original head
+      # count number of nodes
+
+      # if the next node's number is position insert new node here
+
+      # at the same time, move existing nodes down
+
+  end
+
 
 end
