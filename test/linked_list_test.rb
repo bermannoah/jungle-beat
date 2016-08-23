@@ -3,6 +3,7 @@ require 'minitest/autorun'
 require 'minitest/pride'
 require './lib/node'
 require './lib/linked_list'
+require 'pry'
 
 class LinkedListTest < Minitest::Test
 
@@ -13,14 +14,17 @@ class LinkedListTest < Minitest::Test
     assert_equal nil, list.head
   end
 
-  def test_linked_list_has_next_node
+  def test_linked_list_has_current_node
     list = LinkedList.new
-    assert_equal nil, list.next_node
+    assert_equal nil, list.current_node
   end
 
   def test_linked_list_can_count
     list = LinkedList.new
-    refute_nil list.count
+    list.append("hello")
+    list.append("world")
+    list.append("!")
+    assert_equal 3, list.count
   end
 
   def test_linked_list_can_convert_to_string
@@ -29,17 +33,25 @@ class LinkedListTest < Minitest::Test
     assert String, list.to_string
   end
 
-  def test_the_head_node_has_an_empty_next_node
+  def test_the_head_node_has_an_empty_current_node
     list = LinkedList.new
-    assert_equal nil, list.next_node
+    assert_equal nil, list.current_node
   end
 
-  def test_the_head_node_has_a_real_next_node
+  def test_the_head_node_has_a_real_current_node
     list = LinkedList.new
     list.append("doop")
     assert_equal "doop", list.head.data
     list.append("deep")
-    assert_equal "deep", list.next_node.data
+    assert_equal "deep", list.head.next_node.data
   end
 
+  def test_current_node_creates_a_current_node
+    list = LinkedList.new
+    list.append("deep")
+  end
+
+  def test_able_to_prepend_to_list
+    list = LinkedList.new
+  end
 end
