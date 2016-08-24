@@ -1,8 +1,38 @@
-require './lib/node'
 require './lib/linked_list'
 
 class JungleBeat
 
-  list = LinkedList.new
+  attr_reader :list
+  attr_accessor :rate, :voice
+
+  def initialize
+    @list = LinkedList.new
+    @rate = 500
+    @voice = "Boing"
+  end
+
+  def append(data)
+    data.split.each do |sound|
+      list.append(sound)
+    end
+    data
+  end
+
+  def count
+    list.count
+  end
+
+  def play
+    puts "Listen to this..."
+    `say -r #{rate} -v #{voice} #{list.to_string}`
+  end
+
+  def reset_rate
+    @rate = 500
+  end
+
+  def reset_voice
+    @voice = "Boing"
+  end
 
 end

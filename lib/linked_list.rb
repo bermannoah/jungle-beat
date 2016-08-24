@@ -54,7 +54,9 @@ class LinkedList < Node
   end
 
   def insert(position, data)
-
+    if position >= count
+      "You can't do that"
+    else
       current_node = @head.next_node
       count = 1
 
@@ -68,7 +70,7 @@ class LinkedList < Node
         node_to_insert.next_node = current_node.next_node
 
         current_node.next_node = node_to_insert
-
+    end
   end
 
   def find(position, number_of_elements)
