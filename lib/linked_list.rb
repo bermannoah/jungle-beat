@@ -82,29 +82,31 @@ class LinkedList < Node
     generate_collection(number_of_elements, current_node)
   end
 
-  def includes?(data)         # ?????
-    if @head.data.include?(data)
-      true
-    elsif @head.current_node.next_node.data.include?(data)
-      true
-    else
-      false
-    end
+  def includes?(data)
+    current_node = @head
 
+    until current_node == nil
+      return true if current_node.data == data
+      current_node = current_node.next_node
+    end
+    false
   end
 
-  def pop                   # I honestly can't tell if this one IS working or isn't working
+  def pop
     if @head == nil
-      @head == nil
+      return
+    elsif @head.next_node.nil?
+      element_to_return = @head.data
+      @head = nil
     else
-      current_node = @head.next_node
-      count = 1
-      while current_node.nil?
-          count += 1
-          current_node.data == nil
+      current_node = @head
+      until current_node.next_node.next_node.nil?
+        current_node = current_node.next_node
       end
+      element_to_return = current_node.next_node.data
+      current_node.next_node = nil
     end
-
+    element_to_return
   end
 
     private
