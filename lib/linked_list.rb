@@ -2,10 +2,11 @@ require './lib/node.rb'
 
 class LinkedList < Node
   attr_reader :data, :position
-  attr_accessor :head, :node, :current_node, :next_node, :moving_head
+  attr_accessor :head, :node, :current_node, :next_node, :inserted_node, :moved_node, :node_position
 
   def initialize
     @head = node
+    @node_position = 0
   end
 
   def append(data)
@@ -42,13 +43,6 @@ class LinkedList < Node
     count   # sends number of elements to terminal
   end
 
-  # def move_through_and_count(current_node, count)
-  #   until current_node.nil?
-  #     count += 1
-  #     current_node = current_node.next_node
-  #   end
-  # end
-
   def to_string
     string = ""
     string << @head.data
@@ -72,13 +66,25 @@ class LinkedList < Node
 
   def insert(position, data)
 
-      # count number of nodes
+      current_node = @head
+      count = 1
 
-      # if the next node's number is position insert new node here
+      if count == position
+        original_node = current_node.next_node
 
-      # at the same time, move existing nodes down
+        until count == position
+          current_node = current_node.next_node
+          count += 1
+          original_node = current_node.next_node
+        end
 
-  end
+        current_node.next_node = Node.new(data)
 
+        node_to_insert = current_node.next_node
+
+        node_to_insert.next_node = original_node
+
+      end
+    end
 
 end
