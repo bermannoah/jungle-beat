@@ -2,7 +2,7 @@ require './lib/linked_list'
 
 class JungleBeat
 
-  attr_reader :list
+  attr_reader :list, :data
   attr_accessor :rate, :voice
 
   def initialize
@@ -35,4 +35,10 @@ class JungleBeat
     @voice = "Boing"
   end
 
+  def save_raw_song_data
+    puts "Okay, now you can hang onto this."
+    output = File.open("Musical Genius", "w")
+    output.write(data)
+    output.close
+  end
 end
