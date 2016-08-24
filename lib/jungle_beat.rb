@@ -37,8 +37,7 @@ class JungleBeat
 
   def save_raw_song_data
     puts "Okay, now you can hang onto this."
-    output = File.open("Musical Genius", "w")
-    output.write(data)
-    output.close
+    output = File.write('./Musical Genius.txt', "#{list.to_string}")
+    puts "Bye now!"
   end
 end
