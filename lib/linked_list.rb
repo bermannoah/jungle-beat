@@ -1,8 +1,7 @@
 require './lib/node.rb'
 
 class LinkedList < Node
-  attr_reader :data, :elements, :include
-  attr_accessor :head, :node, :current_node, :next_node, :inserted_node, :moved_node, :node_position, :position
+  attr_reader :current_node, :position, :head, :node
 
   def initialize
     @head = node
