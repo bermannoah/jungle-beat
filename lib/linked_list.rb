@@ -6,7 +6,6 @@ class LinkedList < Node
 
   def initialize
     @head = node
-    @node_position = 0
   end
 
   def append(data)
@@ -69,22 +68,17 @@ class LinkedList < Node
       current_node = @head.next_node
       count = 1
 
-      if count == position
-        original_node = current_node.next_node
-
         until count == position
           current_node = current_node.next_node
           count += 1
-          original_node = current_node.next_node
         end
 
-        current_node.next_node = Node.new(data)
+        node_to_insert = Node.new(data)
 
-        node_to_insert = current_node.next_node
+        node_to_insert.next_node = current_node.next_node
 
-        node_to_insert.next_node = original_node
+        current_node.next_node = node_to_insert
 
-      end
   end
 
   def find(position, elements)          # ??????

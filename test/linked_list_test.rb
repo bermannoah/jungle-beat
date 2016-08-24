@@ -74,7 +74,8 @@ class LinkedListTest < Minitest::Test
     list.append("doowap")
     list.insert(1, "woo")
     list.insert(2, "woo")
-    assert_equal 5, list.count
+    list.insert(4, "yikes")
+    assert_equal 6, list.count
   end
 
   def test_find_can_locate_elements
@@ -105,7 +106,7 @@ class LinkedListTest < Minitest::Test
     list.pop
     assert_equal 3, list.count
     assert_nil list.current_node
-    binding.pry
+
   end
 
 end
