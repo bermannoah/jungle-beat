@@ -1,2 +1,2 @@
 # jungle-beat
-another turing mod1 project
+Made this for Turing Code School mod1. It makes music. Sort of.
