@@ -63,13 +63,13 @@ class LinkedList < Node
       end
   end
 
-  def insert(position, data)                # this still doesn't work :(
+  def insert(position, data)
 
       current_node = @head.next_node
       count = 1
 
         until count == position
-          current_node = current_node.next_node
+          current_node = current_node.next_node     # can't insert at end if next == nil!
           count += 1
         end
 
@@ -84,20 +84,20 @@ class LinkedList < Node
   def find(position, elements)          # ??????
     found = ""
     count = 0
-    position = position
     current_node = @head.next_node
-    until current_node.count == elements
+    elements = current_node.data
+    until count == elements
       found << current_node.next_node.data
       current_node = current_node.next_node
     end
-    found
-
-
+    found.to_s
   end
 
 
   def includes?(data)         # ?????
-    if @head.next_node.include?(data)
+    if @head.data.include?(data)
+      true
+    elsif @head.current_node.next_node.data.include?(data)
       true
     else
       false
