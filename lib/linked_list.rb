@@ -18,15 +18,6 @@ class LinkedList < Node
 
   end
 
-  def make_current_node(data)
-    current_node = @head
-    until current_node.next_node.nil?          # looks to see if there's a nil node. if there is...
-      current_node = current_node.next_node    # looks for next node, sets that as local variable and then keeps going
-    end
-    current_node.next_node = Node.new(data)    # ... puts data there.
-
-  end
-
   def count
 
     if @head == nil
@@ -81,18 +72,15 @@ class LinkedList < Node
 
   end
 
-  def find(position, elements)          # ??????
-    found = ""
+  def find(position, number_of_elements)
     count = 0
-    current_node = @head.next_node
-    elements = current_node.data
-    until count == elements
-      found << current_node.next_node.data
+    current_node = @head
+    until count == position
+      count += 1
       current_node = current_node.next_node
     end
-    found.to_s
+    generate_collection(number_of_elements, current_node)
   end
-
 
   def includes?(data)         # ?????
     if @head.data.include?(data)
@@ -119,7 +107,29 @@ class LinkedList < Node
 
   end
 
+    private
 
+    def make_current_node(data)
+      current_node = @head
+      until current_node.next_node.nil?          # looks to see if there's a nil node. if there is...
+        current_node = current_node.next_node    # looks for next node, sets that as local variable and then keeps going
+      end
+      current_node.next_node = Node.new(data)    # ... puts data there.
+
+    end
+
+    def generate_collection(number_of_elements, current_node)
+      found = ""
+      count = 0
+      until count == number_of_elements
+
+        break if current_node.nil?
+        count += 1
+        found << current_node.data + " "
+        current_node = current_node.next_node
+      end
+      found.to_s.strip
+    end
 
 
 end
