@@ -1,8 +1,8 @@
 require './lib/node.rb'
 
 class LinkedList < Node
-  attr_reader :data, :position
-  attr_accessor :head, :node, :current_node, :next_node, :inserted_node, :moved_node, :node_position
+  attr_reader :data, :elements, :include
+  attr_accessor :head, :node, :current_node, :next_node, :inserted_node, :moved_node, :node_position, :position
 
   def initialize
     @head = node
@@ -64,9 +64,9 @@ class LinkedList < Node
       end
   end
 
-  def insert(position, data)
+  def insert(position, data)                # this still doesn't work :(
 
-      current_node = @head
+      current_node = @head.next_node
       count = 1
 
       if count == position
@@ -85,6 +85,47 @@ class LinkedList < Node
         node_to_insert.next_node = original_node
 
       end
+  end
+
+  def find(position, elements)          # ??????
+    found = ""
+    count = 0
+    position = position
+    current_node = @head.next_node
+    until current_node.count == elements
+      found << current_node.next_node.data
+      current_node = current_node.next_node
     end
+    found
+
+
+  end
+
+
+  def includes?(data)         # ?????
+    if @head.next_node.include?(data)
+      true
+    else
+      false
+    end
+
+  end
+
+  def pop                   # I honestly can't tell if this one IS working or isn't working
+    if @head == nil
+      @head == nil
+    else
+      current_node = @head.next_node
+      count = 1
+      while current_node.nil?
+          count += 1
+          current_node.data == nil
+      end
+    end
+
+  end
+
+
+
 
 end

@@ -67,11 +67,45 @@ class LinkedListTest < Minitest::Test
   end
 
   def test_able_to_insert_node_at_a_position
+
     list = LinkedList.new
     list.append("doop")
     list.append("deep")
-    list.prepend_node("doowap")
+    list.append("doowap")
     list.insert(1, "woo")
-    assert_equal 4, list.count
+    list.insert(2, "woo")
+    assert_equal 5, list.count
   end
+
+  def test_find_can_locate_elements
+    list = LinkedList.new
+    list.append("shi")
+    list.append("woo")
+    list.append("shu")
+    assert_equal "shi woo", list.find(1, 2)
+  end
+
+  def test_includes_can_find_out_if_something_exists
+
+    list = LinkedList.new
+    list.append("shi")
+    list.append("woo")
+    list.append("shu")
+    assert_equal true, list.includes?("shi")
+    assert_equal false, list.includes?("hello")
+  end
+
+  def test_pop_can_remove_the_last_node
+
+    list = LinkedList.new
+    list.append("shi")
+    list.append("woo")
+    list.append("shu")
+    assert_equal 3, list.count
+    list.pop
+    assert_equal 3, list.count
+    assert_nil list.current_node
+    binding.pry
+  end
+
 end
