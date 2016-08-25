@@ -87,7 +87,6 @@ class LinkedListTest < Minitest::Test
   end
 
   def test_able_to_insert_a_node_if_there_is_only_one_node
-    skip
     list = LinkedList.new
     list.append("hello")
     list.insert(1, "world")

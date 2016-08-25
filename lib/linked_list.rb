@@ -8,17 +8,14 @@ class LinkedList < Node
   end
 
   def append(data)
-
     if head.nil?                        # if head is nil, put the new node there
       @head = Node.new(data)
     else
       make_current_node(data)           # otherwise start making new nodes that attach to previous nodes
     end
-
   end
 
   def count
-
     if @head == nil
       count = 0
     else
@@ -55,7 +52,7 @@ class LinkedList < Node
 
   def insert(position, data)
 
-    if position >= count
+    if position > count
       "You can't do that"
     else
       current_node = @head
