@@ -8,10 +8,10 @@ class LinkedList < Node
   end
 
   def append(data)
-    if head.nil?                        # if head is nil, put the new node there
+    if head.nil?
       @head = Node.new(data)
     else
-      make_current_node(data)           # otherwise start making new nodes that attach to previous nodes
+      make_current_node(data)
     end
   end
 
@@ -21,12 +21,12 @@ class LinkedList < Node
     else
       current_node = @head.next_node
       count = 1
-      until current_node.nil?                     # until there's nothing there, keep iterating through list
+      until current_node.nil?
           count += 1
-          current_node = current_node.next_node   # the current node is the current node's next node
+          current_node = current_node.next_node
         end
     end
-    count   # sends number of elements to terminal
+    count
   end
 
   def to_string
@@ -41,12 +41,12 @@ class LinkedList < Node
   end
 
   def prepend(data)
-      if @head.nil?                     # if this is called on empty head, proceeds like append
+      if @head.nil?
         @head = Node.new(data)
       else
-        local_head = @head              # store head as a local variable
-        @head = Node.new(data)          # reassign head as a new node
-        @head.next_node = local_head    # assign the original head node to head.next_node
+        local_head = @head
+        @head = Node.new(data)
+        @head.next_node = local_head
       end
   end
 
@@ -57,13 +57,13 @@ class LinkedList < Node
     else
       current_node = @head
       count = 1
-        until count == position                       # this moves through the nodes until we hit the position we want
+        until count == position
           current_node = current_node.next_node
           count += 1
         end
-      node_to_insert = Node.new(data)                 # creates a new node w/desired data
-      node_to_insert.next_node = current_node.next_node   # stores current node (and all its following nodes) as new node's next node
-      current_node.next_node = node_to_insert         # resets and rebuilds with inserted node data from what is right now line 68
+      node_to_insert = Node.new(data)
+      node_to_insert.next_node = current_node.next_node
+      current_node.next_node = node_to_insert
     end
   end
 
@@ -95,7 +95,7 @@ class LinkedList < Node
       @head = nil
       element_to_return
     else
-      get_rid_of_last_element             # runs the code that eliminates the last element
+      get_rid_of_last_element
     end
   end
 
@@ -103,10 +103,10 @@ class LinkedList < Node
 
     def make_current_node(data)
       current_node = @head
-      until current_node.next_node.nil?          # looks to see if there's a nil node. if there is...
-        current_node = current_node.next_node    # looks for next node, sets that as local variable and then keeps going
+      until current_node.next_node.nil?
+        current_node = current_node.next_node
       end
-      current_node.next_node = Node.new(data)    # ... puts data there.
+      current_node.next_node = Node.new(data)
     end
 
     def generate_collection(number_of_elements, current_node)
@@ -127,7 +127,7 @@ class LinkedList < Node
         current_node = current_node.next_node
       end
       element_to_return = current_node.next_node.data
-      current_node.next_node = nil            # sets last node to nil
+      current_node.next_node = nil           
       element_to_return
     end
 end
