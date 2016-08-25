@@ -8,7 +8,7 @@ class JungleBeat
   def initialize
     @list = LinkedList.new
     @rate = 500
-    @voice = "Boing"
+    @voice = "Cellos"
   end
 
   def append(data)
