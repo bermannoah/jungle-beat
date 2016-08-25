@@ -32,7 +32,7 @@ class JungleBeat
   end
 
   def reset_voice
-    @voice = "Boing"
+    @voice = "Cellos"
   end
 
   def save_raw_song_data

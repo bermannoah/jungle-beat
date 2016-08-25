@@ -6,7 +6,7 @@ require 'pry'
 
 class JungleBeatTest < Minitest::Test
 
-  def test_jungle_beat_has_head_node
+  def test_jb_has_head_node
     jb = JungleBeat.new
     assert_nil jb.list.head
   end
@@ -23,5 +23,4 @@ class JungleBeatTest < Minitest::Test
     assert_equal "thing", jb.append("thing")
     assert_equal 1, jb.count
   end
-
 end
