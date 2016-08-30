@@ -1,6 +1,8 @@
 gem 'minitest', '~> 5.2'
 require 'minitest/autorun'
 require 'minitest/pride'
+require 'simplecov'
+SimpleCov.start
 require './lib/node'
 require './lib/linked_list'
 require 'pry'
